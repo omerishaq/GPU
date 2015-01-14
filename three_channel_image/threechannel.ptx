@@ -1,0 +1,80 @@
+	.version 1.4
+	.target sm_10, map_f64_to_f32
+	// compiled with C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\/../open64/lib//be.exe
+	// nvopencc 4.1 built on 2012-09-25
+
+	//-----------------------------------------------------------
+	// Compiling C:/Users/Omer/AppData/Local/Temp/tmpxft_00002c3c_00000000-11_threechannel.cpp3.i (C:/Users/Omer/AppData/Local/Temp/ccBI#.a06648)
+	//-----------------------------------------------------------
+
+	//-----------------------------------------------------------
+	// Options:
+	//-----------------------------------------------------------
+	//  Target:ptx, ISA:sm_10, Endian:little, Pointer Size:64
+	//  -O3	(Optimization level)
+	//  -g0	(Debug level)
+	//  -m2	(Report advisories)
+	//-----------------------------------------------------------
+
+	.file	1	"C:/Users/Omer/AppData/Local/Temp/tmpxft_00002c3c_00000000-10_threechannel.cudafe2.gpu"
+	.file	2	"C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\bin/../../VC/\INCLUDE\crtdefs.h"
+	.file	3	"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\/../include\crt/device_runtime.h"
+	.file	4	"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\/../include\host_defines.h"
+	.file	5	"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\/../include\builtin_types.h"
+	.file	6	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\device_types.h"
+	.file	7	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\host_defines.h"
+	.file	8	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\driver_types.h"
+	.file	9	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\surface_types.h"
+	.file	10	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\texture_types.h"
+	.file	11	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\vector_types.h"
+	.file	12	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\builtin_types.h"
+	.file	13	"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\/../include\device_launch_parameters.h"
+	.file	14	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\crt\storage_class.h"
+	.file	15	"threechannel.cu"
+	.file	16	"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\/../include\common_functions.h"
+	.file	17	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions.h"
+	.file	18	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\math_constants.h"
+	.file	19	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\device_functions.h"
+	.file	20	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\sm_11_atomic_functions.h"
+	.file	21	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\sm_12_atomic_functions.h"
+	.file	22	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\sm_13_double_functions.h"
+	.file	23	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\sm_20_atomic_functions.h"
+	.file	24	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\sm_35_atomic_functions.h"
+	.file	25	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\sm_20_intrinsics.h"
+	.file	26	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\sm_30_intrinsics.h"
+	.file	27	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\sm_35_intrinsics.h"
+	.file	28	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\surface_functions.h"
+	.file	29	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\texture_fetch_functions.h"
+	.file	30	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\texture_indirect_functions.h"
+	.file	31	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\surface_indirect_functions.h"
+	.file	32	"c:\program files\nvidia gpu computing toolkit\cuda\v5.0\include\math_functions_dbl_ptx1.h"
+
+
+	.entry _Z12threechannelPfPiS0_S0_S0_i (
+		.param .u64 __cudaparm__Z12threechannelPfPiS0_S0_S0_i_in,
+		.param .u64 __cudaparm__Z12threechannelPfPiS0_S0_S0_i_red,
+		.param .u64 __cudaparm__Z12threechannelPfPiS0_S0_S0_i_green,
+		.param .u64 __cudaparm__Z12threechannelPfPiS0_S0_S0_i_blue,
+		.param .u64 __cudaparm__Z12threechannelPfPiS0_S0_S0_i_ret,
+		.param .s32 __cudaparm__Z12threechannelPfPiS0_S0_S0_i_num)
+	{
+	.reg .u32 %r<3>;
+	.reg .u64 %rd<8>;
+	.reg .f32 %f<3>;
+	.loc	15	3	0
+$LDWbegin__Z12threechannelPfPiS0_S0_S0_i:
+	.loc	15	6	0
+	cvt.u64.u16 	%rd1, %tid.x;
+	mul.lo.u64 	%rd2, %rd1, 4;
+	ld.param.u64 	%rd3, [__cudaparm__Z12threechannelPfPiS0_S0_S0_i_in];
+	add.u64 	%rd4, %rd3, %rd2;
+	ld.global.f32 	%f1, [%rd4+0];
+	cvt.rzi.s32.f32 	%r1, %f1;
+	ld.param.u64 	%rd5, [__cudaparm__Z12threechannelPfPiS0_S0_S0_i_ret];
+	add.u64 	%rd6, %rd5, %rd2;
+	st.global.s32 	[%rd6+0], %r1;
+	.loc	15	8	0
+	exit;
+$LDWend__Z12threechannelPfPiS0_S0_S0_i:
+	} // _Z12threechannelPfPiS0_S0_S0_i
+
